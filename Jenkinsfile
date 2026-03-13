@@ -15,7 +15,12 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'npm install'
+                dir('backend') {
+                    sh 'npm install'
+                }
+                dir('frontend') {
+                    sh 'npm install'
+                }
             }
         }
 
@@ -38,6 +43,5 @@ pipeline {
                 }
             }
         }
-
     }
 }
