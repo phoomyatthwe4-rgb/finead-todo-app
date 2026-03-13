@@ -24,10 +24,7 @@ pipeline {
         }
         stage('Containerise') {
             steps {
-                sh '''
-                apk add --no-cache docker-cli
-                docker build -t $DOCKER_USER/$APP_NAME:latest .
-                '''
+                sh 'docker build -t $DOCKER_USER/$APP_NAME:latest .'
             }
         }
 
