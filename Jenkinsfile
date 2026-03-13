@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:18-alpine'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     environment {
         DOCKER_USER = "phoomyatthwe6611"
@@ -15,10 +10,10 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('backend') {
+                dir('TODO/todo_backend') {
                     sh 'npm install'
                 }
-                dir('frontend') {
+                dir('TODO/todo_frontend') {
                     sh 'npm install'
                 }
             }
